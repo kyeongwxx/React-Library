@@ -46,12 +46,50 @@
  * Hooks를 기반으로 컴포넌트를 작성합니다
  */
 
- import MyComponent from './MyComponent';
+//  import MyComponent from './MyComponent';
 
- const App = () => {
-     return <MyComponent/>
- };
+//  const App = () => {
+//      return <MyComponent/>
+//  };
  
- export default App;
+//  export default App;
 
 // 3.2.3.2 모듈 불러오기(import)
+// 위 코드에서 import 구문을 사용하는 두 번째 줄은 우리가 만든 MyComponent 컴포넌트를 불러옵니다.
+
+// 3.3 props
+
+/**
+ * props는 properties를 줄인 표현으로 컴포넌트 속성을 설정할 때 사용하는 요소입니다. props 값은 해당 컴포넌트를 불러와 사용하는 부모 컴포넌트(현 상황에서는
+ * App 컴포넌트가 부모 컴포넌트입니다)에서 설정할 수 있습니다.
+ */
+
+// 3.3.2 컴포넌트를 사용할 때 props 값 지정하기
+
+/**
+ * App 컴포넌트에서 MyComponent의 props 값을 지정해 보겠습니다. App.js의 코드를 다음과 같이 수정해 보세요.
+ */
+
+// import MyComponent from './MyComponent'
+
+// const App = () => {
+//     return <MyComponent name='React'/>
+// }
+
+// export default App
+
+// 3.3.4 태그 사이의 내용을 보여주는 children
+
+/**
+ * 리액트 컴포넌트를 사용할 때 컴포넌트 태그 사이의 내용을 보여주는 props가 있는데요, 바로 children입니다. App 컴포넌트를 다음과 같이 한번 수정해 보세요.
+ */
+
+import MyComponent from './MyComponent'
+
+const App = () => {
+    return <MyComponent name='react' favoriteNumber={1}>
+            리액트
+           </MyComponent>
+}
+
+export default App
