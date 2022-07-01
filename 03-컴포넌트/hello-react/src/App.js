@@ -14,16 +14,16 @@
  * 클래스형 컴포넌트가 어떻게 이루어졌는지 확인해 볼까요? 
  */
 
-import { Component } from 'react'
+// import { Component } from 'react'
 
-class App extends Component {
-  render() {
-    const name = '리액트'
-    return <div className='react'>{name}</div>
-  }
-}
+// class App extends Component {
+//   render() {
+//     const name = '리액트'
+//     return <div className='react'>{name}</div>
+//   }
+// }
 
-export default App
+// export default App
 
 /**
  * 클래스형 컴포넌트로 바뀌었지만 역할은 이전에 보았던 함수형 컴포넌트와 똑같습니다. 클래스형 컴포넌트와 함수 컴포넌트의 차이점은 클래스형 컴포넌트의 경우 이후 배울
@@ -45,3 +45,13 @@ export default App
  * 이 책의 경우 초반부에서는 기능을 구현할 때 클래스형 컴포넌트 위주로 사용하여 리액트의 기본기를 익히고, 후반부에서는 Hooks를 완벽히 이해한 후 함수 컴포넌트와
  * Hooks를 기반으로 컴포넌트를 작성합니다
  */
+
+ import MyComponent from './MyComponent';
+
+ const App = () => {
+     return <MyComponent/>
+ };
+ 
+ export default App;
+
+// 3.2.3.2 모듈 불러오기(import)
