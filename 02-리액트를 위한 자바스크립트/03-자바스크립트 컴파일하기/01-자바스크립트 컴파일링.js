@@ -20,4 +20,6 @@ var add2 = function add2() {
   return console.log(x + y);
 };
 
-// 바벨은 "use strict"
+// 바벨은 "use strict" 선언을 맨 위에 추가해서 코드가 엄격한 모드에서 실행되도록 만든다. 그리고 arguments 배열을 통해 x와 y
+// 파라미터의 디폴트 값을 처리한다. 이렇게 만들어진 js 코드는 다양한 브라우저에서 사용 가능하다. js 컴파일은 보통 웹팩(webpack)이나
+// 파슬(parcel)과 같은 자동화된 빌드 도구에 의해 처리된다.
