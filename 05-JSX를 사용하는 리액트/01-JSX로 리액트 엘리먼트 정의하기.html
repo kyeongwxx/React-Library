@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>순수 리액트 예제</title>
+</head>
+
+<body>
+    <!-- 타겟 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전)-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <script>
+        <div>
+            // 내포된 컴포넌트
+            // JSX에서는 다른 컴포넌트의 자식으로 컴포넌트를 추가할 수 있다.
+            <IngredientsList>
+                <Ingredient />
+                <Ingredient />
+                <Ingredient />
+            </IngredientsList>
+
+            // className
+            // js에서 class가 예약어이므로 class 속성 대신 className을 사용한다.
+            <h1 className="fancy">구운 연어</h1>
+
+            // JSX
+            // 중괄호로 JSX를 감싸면 중괄호 안의 식을 평가해서 결과값을 사용해야 한다는 뜻이다.
+            // 예를 들어 엘리먼트 안에 title 프로퍼티 값을 출력하고 싶다면 JSX를 사용해 값을 집어 넣을 수 있다.
+            // 변수를 평가한 값이 엘리먼트 안에 들어간다.
+            <h1>{title}</h1>
+
+            // 평가
+            // 중괄호 안에 들어간 js 코드는 그 값을 평가받는다. 이는 덧셈이나 문자열 이어붙임 등의 여러 연산이
+            // 일어날 수 있다는 뜻이다. 또 js 식 안에 함수 호출 구문이 있다면 그 함수가 호출된다는 뜻이기도 하다.
+            <h1>{"Hello" + title}</h1>
+            <h1>{title.toLowerCase()}</h1>
+
+            // 배열을 JSX로 매핑하기
+            // JSX는 js이므로 js 함수 안에서 jsx를 직접 사용할 수 있다. 예를 들어 배열을 jsx 엘리먼트로 변환할 수 있다.
+            <ul>
+                {props.Ingredients.map((Ingredient, i) => (
+                    <li key={i}>{Ingredient}</li>
+                ))}    
+            </ul>
+        </div>
+    </script>
+</body>
+
+</html>
