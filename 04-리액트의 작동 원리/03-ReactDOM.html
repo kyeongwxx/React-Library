@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>순수 리액트 예제</title>
+</head>
+
+<body>
+    <!-- 타겟 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전)-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <script>
+        const dish = React.createElement("h1", null, "구운 연어")
+        const dessert = React.createElement("h2", null, "코코넛 크림 파이")
+        const items = [
+            "연어 900그램",
+            "신선한 로즈마리 5가지",
+            "올리브 오일 2테이블스푼",
+            "작은 레몬 2조각",
+            "코셔 소금 1티스푼",
+            "다진 마늘 4쪽"
+        ]
+        const list = React.createElement("ul", { className: "ingredients" },
+            items.map((ingredient, i) => React.createElement("li", { key: i }, ingredient))
+        )
+
+        ReactDOM.render([dish, dessert, list], document.getElementById('root'))
+    </script>
+</body>
+
+</html>
