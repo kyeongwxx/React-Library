@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>순수 리액트 예제</title>
+</head>
+
+<body>
+    <!-- 타겟 컨테이너 -->
+    <div id="root"></div>
+
+    <!-- React와 ReactDOM 라이브러리(개발 버전)-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        function Cat({ name }) {
+            return (
+                <>
+                    <h1>고양이 이름은 {name}입니다.</h1>
+                    <p>이 고양이는 멋져요.</p>
+                </>
+            )
+        }
+
+        ReactDOM.render(
+            <Cat name="나비" />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+
+</html>
