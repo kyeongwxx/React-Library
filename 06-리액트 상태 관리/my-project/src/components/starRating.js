@@ -7,11 +7,11 @@ const Star = ({ selected = false, onSelect = (f) => f }) => (
 
 const createArray = (length) => [...Array(length)];
 
-export default function StarRating({ totalStars = 5 }) {
+export default function StarRating({ style = {}, totalStars = 5, ...props }) {
   const [selectedStars, setSelectedStars] = useState(0);
 
   return (
-    <>
+    <div style={{ padding: "5px", ...style }} {...props}>
       {createArray(totalStars).map((n, i) => (
         <Star
           key={i}
@@ -22,6 +22,6 @@ export default function StarRating({ totalStars = 5 }) {
       <p>
         {selectedStars} / {totalStars}
       </p>
-    </>
+    </div>
   );
 }
