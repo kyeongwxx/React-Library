@@ -1,46 +1,30 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import "./App.css";
 
-const useAnyKeyToRender = () => {
-  const [, forceRender] = useState();
+const useWindowSize = () => {
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
 
-  useEffect(() => {
-    window.addEventListener("keydown", forceRender);
-    return () => window.removeEventListener("keydown", forceRender);
+  const setPosition = ({ x, y }) => {
+    setX(x);
+    setY(y);
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener("mousemove", setPosition);
+    return () => window.removeEventListener("mousemove", setPosition);
   }, []);
-};
 
-const WordCount = ({ children = "" }) => {
-  useAnyKeyToRender();
-
-  const fn = useCallback(() => {
-    console.log("hello")
-    console.log("world")
-  }, [])
-
-  useEffect(() => {
-    console.log("fresh render")
-    fn()
-  }, [fn])
-
-  const words = useMemo(() => children.split(" "), [children]);
-
-  useEffect(() => {
-    console.log("fresh render");
-  }, [words]);
-
-  return (
-    <>
-      <p>{children}</p>
-      <p>
-        <strong>{words.length} - words</strong>
-      </p>
-    </>
-  );
+  return [x, y];
 };
 
 function App() {
-  return <WordCount>You are not going to believe this but...</WordCount>;
+  const [x, y] = useWindowSize();
+  return (
+    <div>
+      {x} x {y}
+    </div>
+  );
 }
 
 export default App;
