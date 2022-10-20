@@ -1,30 +1,19 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useReducer, useState } from "react";
 import "./App.css";
 
-const useWindowSize = () => {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+const Checkbox = () => {
+  const [checked, toggle] = useReducer(checked => !checked, false)
 
-  const setPosition = ({ x, y }) => {
-    setX(x);
-    setY(y);
-  };
-
-  useLayoutEffect(() => {
-    window.addEventListener("mousemove", setPosition);
-    return () => window.removeEventListener("mousemove", setPosition);
-  }, []);
-
-  return [x, y];
+  return (
+    <>
+      <input type="checkbox" value={checked} onChange={toggle} />
+      {checked ? "checked" : "not checked"}
+    </>
+  );
 };
 
 function App() {
-  const [x, y] = useWindowSize();
-  return (
-    <div>
-      {x} x {y}
-    </div>
-  );
+  return <Checkbox />;
 }
 
 export default App;
